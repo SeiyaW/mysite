@@ -1,10 +1,24 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}お知らせページ{% endblock %}
 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/notification-index.css' %}">
+{% endblock %}
+
 {% block contents %}
 <div class="contents">
-    <h1>お知らせページ</h1>
-    <p>今回はアカウント機能を作らずにアプリケーション開発を進めてみる。</p>
+    <div class="notification">
+        <h1>お知らせ</h1>
+        <ul>
+            {% for notice in notification %}
+                <li><a href="#">
+                    <time datetime="{{ notice.created_at|date:'Y-m-j' }}">{{ notice.created_at|date:'m-j' }}</time>
+                    <div class="title">{{ notice.title }}</div>
+                </a></li>
+            {% endfor %}
+        </ul>
+    </div>
 </div>
 {% endblock %}

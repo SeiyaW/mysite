@@ -1,15 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}{% endblock %}
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+    <!-- header -->
     {% include 'header/header.html' %}
 
+    <!-- contents -->
     {% block contents %}{% endblock %}
 
+    <!-- footer -->
     {% include 'footer/footer.html' %}
+
+    <!-- script -->
+    {% block script %}{% endblock %}
 </body>
 </html>
