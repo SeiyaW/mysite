@@ -6,22 +6,12 @@ from .forms import NotificationForm
 from django.contrib import messages
 
 # Create your views here.
-# お知らせトップページ
-class NotificationIndexView(generic.TemplateView):
-    template_name = 'notification_index.html'
-
-    def get_context_data(self, **kwargs):
-        notification = Notification.objects.order_by('-created_at')
-        context = super().get_context_data()
-        context['notification'] = notification
-        return context
-
 # お知らせ作成ページ
 class NotificationCreateView(generic.CreateView):
     model = Notification
     template_name = 'notification_create.html'
     form_class = NotificationForm
-    success_url = reverse_lazy('notification:notification_index')
+    success_url = reverse_lazy('design:design_index')
 
     def form_valid(self, form):
         notification = form.save(commit=False)

@@ -12,7 +12,7 @@
     <div class="notification">
         <h1>お知らせ</h1>
         <ul>
-            {% for notice in notification %}
+            {% for notice in notification_list %}
                 <li><a href="{% url 'notification:notification_detail' notice.pk %}">
                     <time datetime="{{ notice.created_at|date:'Y-m-j' }}">{{ notice.created_at|date:'m-j' }}</time>
                     <div class="title">{{ notice.title }}</div>

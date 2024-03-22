@@ -18,5 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('notification.urls')), # お知らせページを現在のトップページにしています。
+    path('', include('design.urls')), # ブログトップページ
+    path('blog/', include('blog.urls')), # ブログトップページ
+    path('notification/', include('notification.urls')), # お知らせページを現在のトップページにしています。
 ]

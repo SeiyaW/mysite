@@ -8,7 +8,7 @@
     <div class="notification">
         <ul>
             {% for notification in notification_list %}
-                <li><a href="">{{ notification.title }}</a></li>
+                <li><a href="{% url 'notification:notification_detail' notification.pk %}">{{ notification.title }}</a></li>
             {% endfor %}
         </ul>
     </div>
