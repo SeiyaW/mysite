@@ -31,3 +31,8 @@ class BlogCreateView(generic.CreateView):
     def form_invalid(self, form):
         messages.error(self.request, "ブログの作成に失敗しました。")
         return super().form_invalid(form)
+    
+# ブログ詳細
+class BlogDetailView(generic.DetailView):
+    model = Blog
+    template_name = 'blog_detail.html'
