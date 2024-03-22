@@ -5,6 +5,16 @@
 
 {% block contents %}
 <div class="contents">
-    <h1>鋭意制作中</h1>
+    <div class="blog">
+        <ul>
+            {% if blog_list %}
+                {% for blog in blog_list %}
+                <li><a href="">{{ blog.title }}</a></li>
+                {% endfor %}
+            {% else %}
+                <li>投稿記事はありません</li>
+            {% endif %}
+        </ul>
+    </div>
 </div>
 {% endblock %}

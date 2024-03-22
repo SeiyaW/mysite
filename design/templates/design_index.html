@@ -5,6 +5,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/notification-index.css' %}">
+<link rel="stylesheet" href="{% static 'css/blog-index.css' %}">
 {% endblock %}
 
 {% block contents %}
@@ -12,10 +13,22 @@
     <div class="notification">
         <h1>お知らせ</h1>
         <ul>
-            {% for notice in notification_list %}
-                <li><a href="{% url 'notification:notification_detail' notice.pk %}">
-                    <time datetime="{{ notice.created_at|date:'Y-m-j' }}">{{ notice.created_at|date:'m-j' }}</time>
-                    <div class="title">{{ notice.title }}</div>
+            {% for notification in notification_list %}
+                <li><a href="{% url 'notification:notification_detail' notification.pk %}">
+                    <time datetime="{{ notification.created_at|date:'Y-m-j' }}">{{ notification.created_at|date:'m-j' }}</time>
+                    <div class="title">{{ notification.title }}</div>
+                </a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="blog">
+        <h1>新着ブログ</h1>
+        <ul>
+            {% for blog in blog_list %}
+                <li><a href="">
+                    <time datetime="{{ blog.created_at|date:'Y-m-j' }}">{{ blog.created_at|date:'m-j' }}</time>
+                    <div class="title">{{ blog.title }}</div>
                 </a></li>
             {% endfor %}
         </ul>
