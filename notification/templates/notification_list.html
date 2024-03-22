@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}お知らせ一覧{% endblock %}
+
+{% block contents %}
+<div class="contents">
+    <div class="notification">
+        <ul>
+            {% for notification in notification_list %}
+                <li><a href="">{{ notification.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

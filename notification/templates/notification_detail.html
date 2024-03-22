@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}お知らせ一覧{% endblock %}
+
+{% block contents %}
+<div class="contents">
+    <div class="notification">
+        <h1>{{ notification.title }}</h1>
+        <p>{{ notification.content }}</p>
+    </div>
+</div>
+{% endblock %}

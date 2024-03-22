@@ -1,5 +1,15 @@
 <header class="header">
-    <div class="header-inner">
-        <h1>ヘッダー</h1>
+    <div class="header-site">
+        <div class="site">
+            <h1><a href="{% url 'notification:notification_index' %}">ヘッダー</a></h1>
+        </div>
+    </div>
+    <div class="header-menu">
+        <nav class="menu">
+            <ul>
+                <li><a href="{% url 'notification:notification_index' %}">トップ</a></li>
+                <li><a href="{% url 'notification:notification_list' %}">お知らせ</a></li>
+            </ul>
+        </nav>
     </div>
 </header>

@@ -16,7 +16,6 @@ class NotificationIndexView(generic.TemplateView):
         context['notification'] = notification
         return context
 
-
 # お知らせ作成ページ
 class NotificationCreateView(generic.CreateView):
     model = Notification
@@ -33,3 +32,18 @@ class NotificationCreateView(generic.CreateView):
     def form_invalid(self, form):
         messages.error(self.request, "お知らせの作成に失敗しました。")
         return super().form_invalid(form)
+
+# お知らせ一覧
+class NotificationListView(generic.ListView):
+    model = Notification
+    template_name = 'notification_list.html'
+    paginate_by = 10
+
+    def get_queryset(self):
+        notification = Notification.objects.order_by('-created_at')
+        return notification
+
+# お知らせ詳細
+class NotificationDetailView(generic.DetailView):
+    model = Notification
+    template_name = 'notification_detail.html'
