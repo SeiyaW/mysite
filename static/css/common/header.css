@@ -20,7 +20,7 @@
 
 .menu li a{
     display: block;
-    padding: 5px;
+    padding: 10px 15px;
     color: #000;
     font-size: 14px;
     text-decoration: none;
@@ -39,6 +39,12 @@
 .menu li{
     float: left;
     width: auto;
+}
+
+/* ヘッダー左右の余白 */
+.header{
+    padding: 15px;
+    /* position: absolute; */
 }
 
 /* ヘッダー横並び設定 */

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}MYSITE{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/design-test.css' %}">
+{% endblock %}
+
+{% block contents %}
+<div class="contents">
+    <aside>
+        <ul>
+            <li><a href=""><img src=""></a></li>
+            <li><a href=""><img src=""></a></li>
+            <li><a href=""><img src=""></a></li>
+        </ul>
+        <button><img src=""></button>
+    </aside>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    $(function(){
+        var duration = 300;
+        var $aside = $('.contents > aside');
+        var $asidButton = $aside.find('button')
+            .on('click', function(){
+                $aside.toggleClass('open');
+                if($aside.hasClass('open')){
+                    $aside.stop(true).animate({
+                        left: '-70px'
+                    }, duration, 'easeOutBack');
+                    $asidButton.find('img')
+                        .attr('src', '{% static "img/btn_close.png" %}');
+                }else{
+                    $aside.stop(true).animate({
+                        left: '-350px'
+                    }, duration, 'easeOutBack');
+                    $asidButton.find('img')
+                            .attr('src', '{% static "img/btn_open.png" %}');
+                };
+            });
+    });
+</script>
+{% endblock %}

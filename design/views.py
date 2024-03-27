@@ -14,3 +14,7 @@ class DesignIndexView(generic.TemplateView):
         context['notification_list'] = notification
         context['blog_list'] = blog
         return context
+
+# デザイン制作用のページを作成
+class DesignTestView(generic.TemplateView):
+    template_name = 'design_test.html'
