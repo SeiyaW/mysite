@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}MYSITE{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/design-test2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ol.css' %}">
+    <script src="{% static 'js/ol.js' %}"></script>
+{% endblock %}
+
+{% block contents %}
+<div class="contents">
+    <section class="work-section" id="work">
+        <header class="section-header clearfix">
+            <div class="inner">
+                <h2>Pick up work</h2>
+                <ul class="tabs-nav">
+                    <li><a href="#work01">Work 01</a></li>
+                    <li><a href="#work02">Work 02</a></li>
+                    <li><a href="#work03">Work 03</a></li>
+                    <li><a href="#work04">Work 04</a></li>
+                    <li><a href="#work05">Work 05</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <div class="section-body">
+            <section class="tabs-panel" id="work01">
+                <div class="image-wrapper">
+                    <img src="{% static 'img/work-1.jpg' %}" alt="" width="1600" height="400">
+                </div>
+                <div class="content">
+                    <div class="inner">
+                        <h3 class="title">Work01</h3>
+                        <p class="description">まげすぎみんなは兎が青くなくからさっきの係りの箱げをすん第一窓顔のおねがいを考えると行っですた。野ねずみは前来て出します。扉は一いう首のようをついてきまし。</p>
+                        <a class="read-more" href="./">Read more</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tabs-panel" id="work02">
+                <div class="image-wrapper">
+                    <img src="{% static 'img/work-2.jpg' %}" alt="" width="1600" height="400">
+                </div>
+                <div class="content">
+                    <div class="inner">
+                        <h3 class="title">Work02</h3>
+                        <p class="description">まげすぎみんなは兎が青くなくからさっきの係りの箱げをすん第一窓顔のおねがいを考えると行っですた。野ねずみは前来て出します。扉は一いう首のようをついてきまし。</p>
+                        <a class="read-more" href="./">Read more</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tabs-panel" id="work03">
+                <div class="image-wrapper">
+                    <img src="{% static 'img/work-3.jpg' %}" alt="" width="1600" height="400">
+                </div>
+                <div class="content">
+                    <div class="inner">
+                        <h3 class="title">Work03</h3>
+                        <p class="description">まげすぎみんなは兎が青くなくからさっきの係りの箱げをすん第一窓顔のおねがいを考えると行っですた。野ねずみは前来て出します。扉は一いう首のようをついてきまし。</p>
+                        <a class="read-more" href="./">Read more</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tabs-panel" id="work04">
+                <div class="image-wrapper">
+                    <img src="{% static 'img/work-4.jpg' %}" alt="" width="1600" height="400">
+                </div>
+                <div class="content">
+                    <div class="inner">
+                        <h3 class="title">Work04</h3>
+                        <p class="description">まげすぎみんなは兎が青くなくからさっきの係りの箱げをすん第一窓顔のおねがいを考えると行っですた。野ねずみは前来て出します。扉は一いう首のようをついてきまし。</p>
+                        <a class="read-more" href="./">Read more</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tabs-panel" id="work05">
+                <div class="image-wrapper">
+                    <img src="{% static 'img/work-5.jpg' %}" alt="" width="1600" height="400">
+                </div>
+                <div class="content">
+                    <div class="inner">
+                        <h3 class="title">Work05</h3>
+                        <p class="description">まげすぎみんなは兎が青くなくからさっきの係りの箱げをすん第一窓顔のおねがいを考えると行っですた。野ねずみは前来て出します。扉は一いう首のようをついてきまし。</p>
+                        <a class="read-more" href="./">Read more</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+</div>
+
+<div id="mapcontainer" style="width: 100%; height: 300px; z-index: 0;"></div>
+{% endblock %}
+
+{% block script %}
+<script>
+   $(function(){
+        $('#work').each(function(){
+            var $tabList = $(this).find('.tabs-nav'),
+                $tabAnchors = $tabList.find('a'),
+                $tabPanels = $(this).find('.tabs-panel');
+
+            $tabList.on('click', 'a', function(event){
+                event.preventDefault();
+                var $this = $(this);
+                if($this.hasClass('active')){
+                    return;
+                }
+
+                $tabAnchors.removeClass('active');
+                $this.addClass('active');
+                $tabPanels.hide();
+                $($this.attr('href')).show();
+            });
+
+            $tabAnchors.eq(0).trigger('click');
+        });
+   });
+</script>
+<script>
+    const map = new ol.Map({
+        target: 'mapcontainer',  //idを使った<div>要素との紐づけ
+        layers: [ //マップレイヤーの追加
+        new ol.layer.Tile({
+            source: new ol.source.OSM() //OpenStreetMap の読み込み
+        })
+        ],
+        view: new ol.View({ //表示範囲の設定
+        center: ol.proj.fromLonLat([142.14, 43.65]),  //初期の中心位置 [経度, 緯度]
+        zoom: 6 //ズームレベル
+        })
+    });
+</script>
+{% endblock %}

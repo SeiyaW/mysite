@@ -1,16 +1,18 @@
 <header class="header" role="banner">
-    <div class="header-site">
-        <div class="site">
-            <h1><a href="{% url 'design:design_index' %}">MYSITE</a></h1>
+    <div class="header-inner">
+        <div class="header-site">
+            <div class="site">
+                <h1><a href="{% url 'design:design_index' %}">MYSITE</a></h1>
+            </div>
         </div>
-    </div>
-    <div class="header-menu">
-        <nav class="menu">
-            <ul>
-                <li><a href="{% url 'design:design_index' %}">トップ</a></li>
-                <li><a href="{% url 'blog:blog_index' %}">ブログ</a></li>
-                <li><a href="{% url 'notification:notification_list' %}">お知らせ</a></li>
-            </ul>
-        </nav>
+        <div class="header-menu">
+            <nav class="menu">
+                <ul>
+                    <li><a href="{% url 'design:design_index' %}">トップ</a></li>
+                    <li><a href="{% url 'blog:blog_index' %}">ブログ</a></li>
+                    <li><a href="{% url 'notification:notification_list' %}">お知らせ</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
 </header>

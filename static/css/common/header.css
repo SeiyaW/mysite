@@ -1,4 +1,8 @@
 @charset "UTF-8";
+body{
+    margin: 0;
+    padding: 0;
+}
 
 /* サイト */
 .site h1 a{
@@ -47,8 +51,13 @@
     /* position: absolute; */
 }
 
+.header.sticky{
+    position: fixed;
+    top: 0;
+}
+
 /* ヘッダー横並び設定 */
-.header:after{
+.header-inner:after{
     content: "";
     display: block;
     clear: both;

@@ -5,7 +5,7 @@
     width: 350px;
     height: 100%;
     top: 0;
-    left: 350px;
+    /* left: 350px; */
     position: fixed;
 }
 

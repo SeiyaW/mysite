@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}ブログ作成{% endblock %}
+{% block title %}ブログ更新{% endblock %}
 
 {% block contents %}
 <div class="contents">
@@ -11,6 +11,7 @@
             {{ form.as_table }}
         </table>
         <button type="submit">作成</button>
+        <a href="{% url 'blog:blog_detail' object.pk %}">キャンセル</a>
     </form>
 </div>
 {% endblock %}
